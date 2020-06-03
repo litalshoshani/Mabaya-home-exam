@@ -58,7 +58,7 @@ public class Campaign {
      * set the campaign's bid.
      * @param bid
      */
-    public void getCampaignBid(double bid) {
+    public void setCampaignBid(double bid) {
         this.bid = bid;
     }
 

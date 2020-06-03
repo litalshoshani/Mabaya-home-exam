@@ -23,7 +23,7 @@ public class CampaignDataAccess implements CampaignDao{
      */
     public CampaignDataAccess() {
         this.categories = new HashMap<String, PriorityQueue<Campaign>>();
-        this.campaignsByBids = new PriorityQueue<>(new CampaignComparator());
+        this.campaignsByBids = new PriorityQueue<Campaign>(new CampaignComparator());
     }
 
     /**
@@ -55,7 +55,7 @@ public class CampaignDataAccess implements CampaignDao{
     private void addCampaignToCategories(Campaign campaign, List<String> campaignCategories){
         for(String category: campaignCategories){
             if(!categories.containsKey(category)){
-                categories.put(category, new PriorityQueue<>(new CampaignComparator()));
+                categories.put(category, new PriorityQueue<Campaign>(new CampaignComparator()));
             }
             categories.get(category).add(campaign);
         }

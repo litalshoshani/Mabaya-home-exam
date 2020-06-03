@@ -57,6 +57,17 @@ public class CampaignService {
     }
 
     /**
+     * The method returns the seller id of the highest bidder campaign.
+     * @return
+     */
+    public UUID getHighestBidCampaignSeller(){
+        Campaign campaign = getHighestBidCampaign();
+        if(campaign != null)
+            return campaign.getSellerID();
+        return null;
+    }
+
+    /**
      * The method removes a campaign from a given category.
      * @param category
      * @param campaign

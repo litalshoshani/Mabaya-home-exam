@@ -19,18 +19,13 @@ public class ProductDataAccess implements ProductDao {
     }
 
     /**
-     * the method creates a new product according to the values receives and adds it to the dao.
-     * @param title
-     * @param price
-     * @param category
-     * @param productSerialNumber
-     * @param sellerID
+     * the method adds a given product to the dao.
+     * @param product
      * @return
      */
     @Override
-    public int addProduct(String title, double price, String category, UUID productSerialNumber, UUID sellerID) {
-        Product product = new Product(title, price, category, productSerialNumber, sellerID);
-        allProducts.put(productSerialNumber, product);
+    public int addProduct(Product product) {
+        allProducts.put(product.getProductSerialNumber(), product);
         return 1;
     }
 
@@ -64,5 +59,14 @@ public class ProductDataAccess implements ProductDao {
     public UUID getProductSeller(UUID serialNum) {
         Product product = allProducts.get(serialNum);
         return product.getSellerID();
+    }
+
+    /**
+     * The method returns a hash map of all the products.
+     * @return
+     */
+    @Override
+    public HashMap<UUID, Product> getAllProducts(){
+        return allProducts;
     }
 }

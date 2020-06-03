@@ -2,6 +2,7 @@ package Mabayahomeexam.dao;
 
 import Mabayahomeexam.model.Product;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -9,7 +10,7 @@ import java.util.UUID;
  */
 public interface ProductDao {
 
-    int addProduct(String title, double price, String category, UUID productSerialNumber, UUID sellerID);
+    int addProduct(Product product);
 
     String getProductCategory(UUID serialNum);
 
@@ -17,4 +18,5 @@ public interface ProductDao {
 
     UUID getProductSeller(UUID serialNum);
 
+    HashMap<UUID, Product> getAllProducts();
 }

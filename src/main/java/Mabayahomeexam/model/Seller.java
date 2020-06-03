@@ -32,9 +32,9 @@ public class Seller {
      * adds a product to the seller's list of products
      * @param serialNumber
      */
-    public void addProduct(UUID serialNumber) {
+    public void addProduct(UUID serialNumber, String category) {
         productsBySerialNumber.add(serialNumber);
-
+        addProductToCategory(serialNumber, category);
     }
 
     /**

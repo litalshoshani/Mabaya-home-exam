@@ -4,6 +4,7 @@ import Mabayahomeexam.dao.ProductDao;
 import Mabayahomeexam.dao.ProductDataAccess;
 import Mabayahomeexam.model.Product;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -49,16 +50,20 @@ public class ProductService {
     }
 
     /**
-     * the method adds a new product to the dao.
-     * @param title
-     * @param price
-     * @param category
-     * @param productSerialNumber
-     * @param sellerID
+     * the method adds a product to the dao.
+     * @param product
      * @return
      */
-    public int addProduct(String title, double price, String category, UUID productSerialNumber, UUID sellerID){
-        productDao.addProduct(title, price, category, productSerialNumber, sellerID);
+    public int addProduct(Product product){
+        productDao.addProduct(product);
         return 1;
+    }
+
+    /**
+     * The method returns a hash map of all the products.
+     * @return
+     */
+    public HashMap<UUID, Product> getAllProducts(){
+        return productDao.getAllProducts();
     }
 }

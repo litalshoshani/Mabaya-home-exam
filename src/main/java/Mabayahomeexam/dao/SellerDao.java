@@ -3,6 +3,7 @@ package Mabayahomeexam.dao;
 import Mabayahomeexam.model.Product;
 import Mabayahomeexam.model.Seller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,9 +20,11 @@ public interface SellerDao {
 
     int removeSellerProduct(UUID sellerId, UUID productId);
 
-    int addSellerProduct(Product p);
+    int addSellerProduct(UUID sellerId, UUID serialNum, String category);
 
     boolean sellCategory(UUID id, String category);
 
     List<String> sellerProductsCategories(UUID id);
+
+    HashMap<UUID, Seller> getAllSellers();
 }

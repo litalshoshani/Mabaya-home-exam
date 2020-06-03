@@ -3,7 +3,9 @@ package Mabayahomeexam.service;
 
 import Mabayahomeexam.dao.SellerDao;
 import Mabayahomeexam.dao.SellerDataAccess;
+import Mabayahomeexam.model.Seller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -63,7 +65,7 @@ public class SellerService {
 
     /**
      * The method returns a random product from the products list.
-     * if there no products, the method returns null.
+     * if there is no products, the method returns null.
      * @param products
      * @return
      */
@@ -88,5 +90,31 @@ public class SellerService {
      */
     public List<String> getSellerProductsCategories(UUID id){
         return sellerDao.sellerProductsCategories(id);
+    }
+
+    /**
+     * The method adds a new seller.
+     * @param seller
+     */
+    public void addSeller(Seller seller){
+        sellerDao.addSeller(seller);
+    }
+
+    /**
+     * The method adds a product to a given seller.
+     * @param seller
+     * @param serialNum
+     * @param category
+     */
+    public void addSellerProduct(Seller seller, UUID serialNum, String category){
+        sellerDao.addSellerProduct(seller.getId(), serialNum, category);
+    }
+
+    /**
+     * The method returns a hash map of all the sellers in the dao.
+     * @return
+     */
+    public HashMap<UUID, Seller> getAllSellers(){
+        return sellerDao.getAllSellers();
     }
 }
