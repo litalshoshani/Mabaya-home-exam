@@ -2,6 +2,7 @@ package Mabayahomeexam.dao;
 
 
 import Mabayahomeexam.model.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -11,6 +12,7 @@ import java.util.UUID;
  * Contains all products, and features of actions that can be done in the dao
  * according to the ProductDao interface.
  */
+@Repository("productDao")
 public class ProductDataAccess implements ProductDao {
     HashMap<UUID, Product> allProducts;
 

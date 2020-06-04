@@ -1,5 +1,6 @@
-package Mabayahomeexam.testModules;
+package Mabayahomeexam.parsers;
 
+import Mabayahomeexam.model.Campaign;
 import Mabayahomeexam.service.ServiceCenter;
 
 import java.io.BufferedReader;
@@ -88,6 +89,7 @@ public class CampaignParser {
             }
         }
         //create the campaign. the service center will add the campaign to the dao.
-        serviceCenter.createCampaign(name, bid, sellerID);
+        Campaign campaign = new Campaign(name, bid, sellerID);
+        serviceCenter.addCampaign(campaign);
     }
 }

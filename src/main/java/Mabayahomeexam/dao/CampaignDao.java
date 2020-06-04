@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public interface CampaignDao {
 
-    Campaign addCampign(String name, double bid, UUID sellerId, List<String> campaignCategories);
+    void addCampign(Campaign campaign, List<String> campaignCategories);
 
     void removeCampaignFromCategory(String category, Campaign campaign);
 

@@ -1,5 +1,7 @@
 package Mabayahomeexam.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 /**
@@ -23,7 +25,9 @@ public class Campaign {
      * @param bid
      * @param sellerId
      */
-    public Campaign(String name, double bid, UUID sellerId) {
+    public Campaign(@JsonProperty("name") String name,
+                    @JsonProperty("bid") double bid,
+                    @JsonProperty("sellerId") UUID sellerId) {
         this.name = name;
         this.bid = bid;
         this.status = "ACTIVE";

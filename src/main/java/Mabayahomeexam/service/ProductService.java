@@ -3,6 +3,9 @@ package Mabayahomeexam.service;
 import Mabayahomeexam.dao.ProductDao;
 import Mabayahomeexam.dao.ProductDataAccess;
 import Mabayahomeexam.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -11,6 +14,7 @@ import java.util.UUID;
  * This class represents the connection to the ProductDao.
  * The class can access and receive data of products from the ProductDao.
  */
+@Service
 public class ProductService {
 
     private ProductDao productDao;
@@ -18,8 +22,11 @@ public class ProductService {
     /**
      * constructor
      */
-    public ProductService() {
-        this.productDao = new ProductDataAccess();
+    @Autowired
+    public ProductService(@Qualifier("productDao")ProductDao productDao) {
+
+        //this.productDao = new ProductDataAccess();
+        this.productDao = productDao;
     }
 
     /**

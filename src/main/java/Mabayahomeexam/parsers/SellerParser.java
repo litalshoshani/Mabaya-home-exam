@@ -1,4 +1,4 @@
-package Mabayahomeexam.testModules;
+package Mabayahomeexam.parsers;
 
 import Mabayahomeexam.model.Seller;
 import Mabayahomeexam.service.ServiceCenter;

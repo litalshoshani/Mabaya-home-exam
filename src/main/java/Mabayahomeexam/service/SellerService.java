@@ -4,6 +4,9 @@ package Mabayahomeexam.service;
 import Mabayahomeexam.dao.SellerDao;
 import Mabayahomeexam.dao.SellerDataAccess;
 import Mabayahomeexam.model.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.UUID;
  * This class represents the connection to the SellerDao.
  * The class can access and receive data of a seller from the SellerDao.
  */
+@Service
 public class SellerService {
 
     private SellerDao sellerDao;
@@ -21,8 +25,11 @@ public class SellerService {
     /**
      * constructor
      */
-    public SellerService() {
-        this.sellerDao = new SellerDataAccess();
+    @Autowired
+    public SellerService(@Qualifier("sellerDao") SellerDao sellerDao) {
+
+        //this.sellerDao = new SellerDataAccess();
+        this.sellerDao = sellerDao;
     }
 
     /**

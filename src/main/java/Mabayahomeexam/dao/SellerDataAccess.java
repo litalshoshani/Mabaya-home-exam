@@ -3,6 +3,7 @@ package Mabayahomeexam.dao;
 
 import Mabayahomeexam.model.Product;
 import Mabayahomeexam.model.Seller;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.UUID;
  * Contains all sellers, and features of actions that can be done
  * in the dao according to the SellerDao interface.
  */
+@Repository("sellerDao")
 public class SellerDataAccess implements SellerDao {
 
     HashMap<UUID, Seller> allSellers;

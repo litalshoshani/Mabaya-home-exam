@@ -2,6 +2,7 @@ package Mabayahomeexam.dao;
 
 import Mabayahomeexam.comparators.CampaignComparator;
 import Mabayahomeexam.model.Campaign;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.UUID;
  * Contains all campaigns - represented by their bid and by their categories,
  * and features of actions that can be done in the dao according to the CampaignDao interface.
  */
+@Repository("campaignDao")
 public class CampaignDataAccess implements CampaignDao{
 
     PriorityQueue<Campaign> campaignsByBids;
@@ -32,18 +34,14 @@ public class CampaignDataAccess implements CampaignDao{
      * then to the priority queue.
      * The method returns the created campaign.
      *
-     * @param name
-     * @param bid
-     * @param sellerId
+     * @param campaign
      * @param campaignCategories
      * @return
      */
     @Override
-    public Campaign addCampign(String name, double bid, UUID sellerId, List<String> campaignCategories) {
-        Campaign campaign = new Campaign(name, bid, sellerId);
+    public void addCampign(Campaign campaign, List<String> campaignCategories) {
         addCampaignToCategories(campaign, campaignCategories);
         campaignsByBids.add(campaign);
-        return campaign;
     }
 
 

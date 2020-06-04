@@ -4,11 +4,14 @@ package Mabayahomeexam.service;
 import Mabayahomeexam.model.Campaign;
 import Mabayahomeexam.model.Product;
 import Mabayahomeexam.model.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class ServiceCenter {
 
     private CampaignService campaignService;
@@ -18,21 +21,23 @@ public class ServiceCenter {
     /**
      * constructor
      */
-    public ServiceCenter() {
-        this.campaignService = new CampaignService();
-        this.sellerService = new SellerService();
-        this.productService = new ProductService();
+    @Autowired
+    public ServiceCenter(CampaignService campaignService, SellerService sellerService, ProductService productService) {
+        this.campaignService = campaignService;
+        this.sellerService = sellerService;
+        this.productService = productService;
     }
 
     /**
      * The method creates new campaign
-     * @param name
-     * @param bid
-     * @param sellerId
+     * @param campaign
      */
-    public Campaign createCampaign(String name, double bid, UUID sellerId){
+    public Campaign addCampaign(Campaign campaign){
+        //get the campaign's seller
+        UUID sellerId = campaign.getSellerID();
+        //get the seller product's categories, in order to know the campaign's promoted categories.
         List<String> sellerCategories = sellerService.getSellerProductsCategories(sellerId);
-        Campaign campaign = campaignService.addCampaign(name, bid, sellerId, sellerCategories);
+        campaignService.addCampaign(campaign, sellerCategories);
         return campaign;
     }
 

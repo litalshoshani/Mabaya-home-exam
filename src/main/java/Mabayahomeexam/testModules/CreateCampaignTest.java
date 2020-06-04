@@ -2,6 +2,7 @@ package Mabayahomeexam.testModules;
 
 import Mabayahomeexam.model.Campaign;
 import Mabayahomeexam.model.Product;
+import Mabayahomeexam.parsers.CampaignParser;
 import Mabayahomeexam.service.ServiceCenter;
 
 import java.io.File;

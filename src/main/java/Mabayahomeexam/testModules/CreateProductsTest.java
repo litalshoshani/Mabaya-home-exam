@@ -1,7 +1,9 @@
 package Mabayahomeexam.testModules;
 
 import Mabayahomeexam.model.Product;
+import Mabayahomeexam.parsers.ProductParser;
 import Mabayahomeexam.service.ServiceCenter;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.util.HashMap;
@@ -13,6 +15,7 @@ import java.util.UUID;
  * by parsing a file with the information of the products, the class create and adds
  * all the products to the dao.
  */
+@RestController
 public class CreateProductsTest {
     private File productFile;
     private ProductParser parser;

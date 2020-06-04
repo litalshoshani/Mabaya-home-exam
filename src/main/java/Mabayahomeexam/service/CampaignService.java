@@ -3,6 +3,9 @@ package Mabayahomeexam.service;
 import Mabayahomeexam.dao.CampaignDao;
 import Mabayahomeexam.dao.CampaignDataAccess;
 import Mabayahomeexam.model.Campaign;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,6 +14,7 @@ import java.util.UUID;
  * This class represents the connection to the CampaignDao.
  * The class can access and receive data of campaigns from the CampaignDao.
  */
+@Service
 public class CampaignService {
 
     private CampaignDao campaignDao;
@@ -18,20 +22,22 @@ public class CampaignService {
     /**
      * constructor
      */
-    public CampaignService() {
-        this.campaignDao = new CampaignDataAccess();
+    @Autowired
+    public CampaignService(@Qualifier("campaignDao")CampaignDao campaignDao) {
+
+        //this.campaignDao = new CampaignDataAccess();
+        this.campaignDao = campaignDao;
+
     }
 
     /**
      * The method adds a campaign to the campaign dao
-     * @param name
-     * @param bid
-     * @param sellerId
+     * @param campaign
      * @param campaignCategories
      * @return
      */
-    public Campaign addCampaign(String name, double bid, UUID sellerId, List<String> campaignCategories){
-        return campaignDao.addCampign(name, bid, sellerId, campaignCategories);
+    public void addCampaign(Campaign campaign, List<String> campaignCategories){
+        campaignDao.addCampign(campaign, campaignCategories);
     }
 
     /**

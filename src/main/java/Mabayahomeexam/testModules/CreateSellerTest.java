@@ -2,6 +2,7 @@ package Mabayahomeexam.testModules;
 
 import Mabayahomeexam.model.Product;
 import Mabayahomeexam.model.Seller;
+import Mabayahomeexam.parsers.SellerParser;
 import Mabayahomeexam.service.ServiceCenter;
 
 import java.io.File;
