@@ -44,7 +44,6 @@ public class CampaignDataAccess implements CampaignDao{
         campaignsByBids.add(campaign);
     }
 
-
     /**
      * The method adds the campaign to the dao by putting the campaign in the categories it promotes.
      * @param campaign

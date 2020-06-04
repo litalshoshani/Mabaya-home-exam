@@ -1,10 +1,8 @@
 package Mabayahomeexam.dao;
 
 import Mabayahomeexam.model.Campaign;
-import Mabayahomeexam.model.Product;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * This interface represents the methods and features of the campaigns data access objects.
@@ -18,7 +16,5 @@ public interface CampaignDao {
     Campaign getHighestBidderCampaign();
 
     Campaign getCampaignByCategory(String category);
-
-    //List<String> getCampaignsCategories(Campaign campaign);
 
 }

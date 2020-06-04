@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * This class responsible for configuring the sellers.
+ */
 public class ConfigureSellers {
 
     private File sellerFile;
@@ -28,7 +31,7 @@ public class ConfigureSellers {
 
     /**
      * The method generates the sellers from the given file,
-     * and adds them to the dao (by sending the sellers to the service center)
+     * and adds them to the dao (by sending the sellers to the service center).
      */
     public void createSellersFromFile(){
         HashMap<Seller, List<UUID>> sellers = parser.generateSellers(sellerFile);

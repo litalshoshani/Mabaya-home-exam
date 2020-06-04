@@ -1,7 +1,6 @@
 package Mabayahomeexam.service;
 
 import Mabayahomeexam.dao.CampaignDao;
-import Mabayahomeexam.dao.CampaignDataAccess;
 import Mabayahomeexam.model.Campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,10 +23,7 @@ public class CampaignService {
      */
     @Autowired
     public CampaignService(@Qualifier("campaignDao")CampaignDao campaignDao) {
-
-        //this.campaignDao = new CampaignDataAccess();
         this.campaignDao = campaignDao;
-
     }
 
     /**

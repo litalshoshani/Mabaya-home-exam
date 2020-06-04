@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * This class is responsible for parsing a file with the information of the products, their names,
- * price, categories, serial numbers and sellers.
+ * This class is responsible for parsing a file with the information of the products,
+ * their names, price, categories, serial numbers and sellers.
  */
 public class ProductParser {
 

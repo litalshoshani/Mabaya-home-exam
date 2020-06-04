@@ -106,5 +106,4 @@ public class Product {
         return productSerialNumber;
     }
 
-
 }

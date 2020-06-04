@@ -1,7 +1,6 @@
 package Mabayahomeexam.service;
 
 import Mabayahomeexam.dao.ProductDao;
-import Mabayahomeexam.dao.ProductDataAccess;
 import Mabayahomeexam.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,8 +23,6 @@ public class ProductService {
      */
     @Autowired
     public ProductService(@Qualifier("productDao")ProductDao productDao) {
-
-        //this.productDao = new ProductDataAccess();
         this.productDao = productDao;
     }
 

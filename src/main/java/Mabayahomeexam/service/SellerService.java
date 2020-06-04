@@ -1,8 +1,6 @@
 package Mabayahomeexam.service;
 
-
 import Mabayahomeexam.dao.SellerDao;
-import Mabayahomeexam.dao.SellerDataAccess;
 import Mabayahomeexam.model.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,8 +25,6 @@ public class SellerService {
      */
     @Autowired
     public SellerService(@Qualifier("sellerDao") SellerDao sellerDao) {
-
-        //this.sellerDao = new SellerDataAccess();
         this.sellerDao = sellerDao;
     }
 

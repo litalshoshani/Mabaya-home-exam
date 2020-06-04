@@ -2,10 +2,13 @@ package Mabayahomeexam.congifuration;
 
 import Mabayahomeexam.service.ServiceCenter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This class responsible for configurations of the data the program needs.
+ * This class is the "brain" of the configurations classes: this class holds
+ * and calls the other configuration classes.
+ */
 @Component
 public class ConfigureModule {
 
@@ -13,6 +16,10 @@ public class ConfigureModule {
     private final ConfigureSellers configureSellers;
     private final ServiceCenter serviceCenter;
 
+    /**
+     * constructor
+     * @param serviceCenter
+     */
     @Autowired
     public ConfigureModule(ServiceCenter serviceCenter) {
         this.serviceCenter = serviceCenter;
@@ -20,6 +27,9 @@ public class ConfigureModule {
         this.configureSellers = new ConfigureSellers(serviceCenter);
     }
 
+    /**
+     * The method generates the needed data.
+     */
     public void startConfiguration(){
         configureProducts.createProductsFromFile();
         configureSellers.createSellersFromFile();

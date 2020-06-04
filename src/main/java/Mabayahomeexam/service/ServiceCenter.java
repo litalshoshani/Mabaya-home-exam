@@ -1,6 +1,5 @@
 package Mabayahomeexam.service;
 
-
 import Mabayahomeexam.model.Campaign;
 import Mabayahomeexam.model.Product;
 import Mabayahomeexam.model.Seller;
@@ -11,6 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * This class is the services brain.
+ * It holds all the other services, and uses them to add objects and features,
+ * or to pass and get information from one service to the other.
+ */
 @Service
 public class ServiceCenter {
 
